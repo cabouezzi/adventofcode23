@@ -87,8 +87,12 @@ fn read_input() -> Vec<HandData> {
     for line in lines {
         let (order, bid) = line.split_once(" ").unwrap();
         let hand = read_hand(order.to_string());
-        hands.push(HandData { raw_value: line.to_string(), kind: hand.0, ordered_cards: hand.1, bid: bid.to_string().parse::<usize>().unwrap() }
-        );
+        hands.push(HandData {
+            raw_value: line.to_string(),
+            kind: hand.0,
+            ordered_cards: hand.1,
+            bid: bid.to_string().parse::<usize>().unwrap(),
+        });
     }
 
     hands.sort_by(|this, that| {
