@@ -16,12 +16,6 @@ typedef struct {
     vector<int> empty_columns;
 } Data;
 
-bool all_false(const vector<bool> &array) {
-    for (bool e: array)
-        if (e) return false;
-    return true;
-}
-
 Data read_input() {
     ifstream input("input.txt");
     vector<vector<bool>> matrix;
@@ -36,7 +30,7 @@ Data read_input() {
         for (char col: line)
             row_data.push_back(col == '#');
         matrix.push_back(row_data);
-        if (all_false(row_data))
+        if (none_of(row_data.begin(), row_data.end(), [](bool e) { return e; }))
             empty_rows.push_back(row);
         row++;
     }
