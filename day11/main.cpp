@@ -59,7 +59,7 @@ Data read_input() {
             .empty_columns = empty_columns};
 }
 
-long diff(Coord lhs, Coord rhs, const Data& data, long scale_factor) {
+long diff(Coord lhs, Coord rhs, const Data &data, long scale_factor) {
     long scaled = 0;
 
     for (int col: data.empty_columns)
