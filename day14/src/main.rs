@@ -81,7 +81,11 @@ fn main() {
             // Cycle consists of items between cur and last
             let cycle: Vec<Vec<String>> = states[last..].iter().map(|e| e.clone()).collect();
             let leftover = target - i - 1;
-            println!("Part 2: {} {}", last, compute_weight(&cycle[leftover % cycle.len()]));
+            println!(
+                "Part 2: {} {}",
+                last,
+                compute_weight(&cycle[leftover % cycle.len()])
+            );
             break;
         } else {
             states.push(platform.clone());
