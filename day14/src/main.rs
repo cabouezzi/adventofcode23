@@ -76,16 +76,11 @@ fn main() {
             platform = tilt_platform(&platform);
             platform = rotate_left(&platform);
         }
-        println!("Update {}: {}", i, compute_weight(&platform));
         if let Some(last) = states.iter().position(|e| *e == platform) {
             // Cycle consists of items between cur and last
             let cycle: Vec<Vec<String>> = states[last..].iter().map(|e| e.clone()).collect();
             let leftover = target - i - 1;
-            println!(
-                "Part 2: {} {}",
-                last,
-                compute_weight(&cycle[leftover % cycle.len()])
-            );
+            println!("Part 2: {}", compute_weight(&cycle[leftover % cycle.len()]));
             break;
         } else {
             states.push(platform.clone());
